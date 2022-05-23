@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="bg-white shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold font-sans">
+              COPA RYBENÁ DE MAGIC
+            </h1>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
