@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-400;
+  @apply bg-gray-300;
   font-family: 'RobotoDraft', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -46,7 +46,7 @@ p {
   border-radius: 16px;
   overflow: hidden;
 
-  @apply shadow-xl shadow-gray-700 justify-between content-center;
+  @apply bg-none outline-dashed outline-[3px] outline-[#316181] hover:outline-none hover:shadow-lg hover:shadow-gray-600 justify-between content-center;
 }
 
 /* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
@@ -54,7 +54,7 @@ p {
 /* Top Half of card, image. */
 
 .property-image {
-  height: 6em;
+  height: 12em;
   width: 14em;
   padding: 1em 2em;
   position: Absolute;
@@ -69,8 +69,7 @@ p {
 /* Bottom Card Section */
 
 .property-description {
-  background-color: #FAFAFC;
-  height: 12em;
+  height: 6em;
   width: 14em;
   position: absolute;
   bottom: 0em;
@@ -79,6 +78,8 @@ p {
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   padding: 0.5em 1em;
   text-align: center;
+
+  @apply bg-white;
 }
 
 /* Social Icons */
@@ -98,12 +99,14 @@ p {
 /* Property Cards Hover States */
 
 .property-card:hover .property-description {
-  height: 0em;
-  padding: 0px 1em;
+  height: 12em;
+  padding: 0px;
+  background: transparent;
 }
 
 .property-card:hover .property-image {
   height: 18em;
+  @apply blur-[2px] opacity-50;
 }
 
 .property-card:hover .property-social-icons {
