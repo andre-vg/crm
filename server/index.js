@@ -3,16 +3,16 @@ const app = express();
 const port = 5000;
 
 //connect to database and get table
-const mysql = require("mysql2");
 const cors = require("cors");
 app.use(cors());
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "andre",
-  password: "@V1ct0rg",
-  database: "CRM",
-});
+//connect do database using SSl
+
+require("dotenv").config();
+const mysql = require("mysql2");
+const connection = mysql.createConnection(process.env.DATABASE_URL);
+console.log("Connected to PlanetScale!");
+
 connection.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
