@@ -21,7 +21,7 @@ function Card() {
       {jogadores.map((jogador) => {
         return (
           <div class="center">
-            <div class="property-card">
+            <div class="property-card group">
               <div
                 class="property-image"
                 style={{ backgroundImage: `url(${jogador.url})` }}
@@ -30,10 +30,12 @@ function Card() {
                 <div class="property-image-title"></div>
               </div>
               <div class="property-description">
-                <h5> {jogador.nme_jogador} </h5>
-                <p>
-                  Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo.
-                  More Bingo. Lorem Ipum doth
+                <h5 className="text-lg group-hover:text-2xl transition-all duration-500">
+                  {" "}
+                  {jogador.nme_jogador}{" "}
+                </h5>
+                <p className="text-md group-hover:text-lg transition-all duration-500">
+                  {jogador.dsc}
                 </p>
               </div>
             </div>

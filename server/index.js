@@ -6,16 +6,26 @@ const port = 5000;
 const cors = require("cors");
 app.use(cors());
 
-//connect do database using SSl
+// //connect do database using SSl
 
-require("dotenv").config();
+// require("dotenv").config();
+// const mysql = require("mysql2");
+// const connection = mysql.createConnection(process.env.DATABASE_URL);
+// console.log("Connected to PlanetScale!");
+
+// connection.connect(function (err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
+
+//connect database
 const mysql = require("mysql2");
-const connection = mysql.createConnection(process.env.DATABASE_URL);
-console.log("Connected to PlanetScale!");
-
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "CRM",
+  port: "3306",
 });
 
 app.get("/", (req, res) => {
