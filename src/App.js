@@ -1,7 +1,6 @@
 import "./index.css";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Card from "./componentes/Card";
+import React from "react";
+import Jogadores from "./pages/Jogadores";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Nav from "./componentes/Navbar";
 import Camp from "./pages/Camp";
@@ -14,7 +13,7 @@ function App() {
         <Nav />
         <BrowserRouter>
           <Routes>
-            <Route path="/jogadores" element={<Card />} />
+            <Route path="/jogadores" element={<Jogadores />} />
             <Route path="/campeonatos" element={<Camp />} />
           </Routes>
         </BrowserRouter>

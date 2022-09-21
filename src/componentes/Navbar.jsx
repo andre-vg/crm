@@ -36,7 +36,7 @@ export default function Nav() {
         color="blue-gray"
         className="p-1 font-medium poppins"
       >
-        <a href="#" className="flex items-center">
+        <a href="/jogadores" className="flex items-center">
           Jogadores
         </a>
       </Typography>
