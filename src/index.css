@@ -5,6 +5,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
+#root{
+  @apply
+  bg-blue-gray-50;
+}
+
 .poppins {
   font-family: "Poppins", sans-serif;
 }

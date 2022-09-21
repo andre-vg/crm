@@ -54,7 +54,7 @@ export default function Nav() {
   );
 
   return (
-    <div className="sticky top-2">
+    <div className="sticky top-2 z-50">
       <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 lg:mt-2 poppins ">
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
           <Typography
