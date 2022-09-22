@@ -13,24 +13,25 @@ import { ImCross } from "react-icons/im";
 
 export default function Nav() {
   const [openNav, setOpenNav] = useState(false);
-  const [logged, setLogged] = useState(AuthService.isLoggedIn());
-
-  AuthService.observeStatus((user) => {
-    setLogged(!!user);
-  });
+  const [logged, setLogged] = useState(false);
 
   const handleLogin = async () => {
     console.log("login");
-    await AuthService.LoginWithGoogle()
+    await AuthService.LoginWithGoogle(setLogged)
       .then((res) => {
         console.log("response", res);
+        setLogged(true);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+        setLogged(false);
+      });
   };
 
   const handleLogout = async () => {
     await AuthService.Logout().then(() => {
       console.log("logout");
+      setLogged(false);
     });
   };
 
@@ -84,7 +85,7 @@ export default function Nav() {
   );
 
   return (
-    <div className="sticky top-2 z-50">
+    <div className="sticky top-2 z-50 poppins">
       <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 lg:mt-2 poppins ">
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
           <Typography
@@ -96,14 +97,15 @@ export default function Nav() {
             <span className="text-4xl kanit">CRM</span>
           </Typography>
           <div className="hidden lg:block">{navList}</div>
-          <Button
+          {/* <Button
             variant="gradient"
             size="sm"
             className="hidden lg:inline-block"
             onClick={!logged ? handleLogin : handleLogout}
           >
             <span>{!logged ? "Login" : "Sair"}</span>
-          </Button>
+          </Button> */}
+          {}
           <button
             className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
             onClick={() => {
@@ -111,13 +113,19 @@ export default function Nav() {
               console.log("apertou");
             }}
           >
-            {openNav ? <ImCross /> :  <FaBars /> }
+            {openNav ? <ImCross /> : <FaBars />}
           </button>
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Login</span>
+          <Button
+            variant="gradient"
+            size="sm"
+            fullWidth
+            className="mb-2"
+            onClick={!logged ? handleLogin : handleLogout}
+          >
+            <span>{!logged ? "Login" : "Sair"}</span>
           </Button>
         </MobileNav>
       </Navbar>

@@ -4,14 +4,18 @@ import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 const AuthService = {
   async isLoggedIn() {
     const user = auth.currentUser;
-    return user;
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
   },
 
   observeStatus(callback) {
     auth.onAuthStateChanged(callback);
   },
 
-  async LoginWithGoogle() {
+  async LoginWithGoogle(setLogged) {
     const provider = new GoogleAuthProvider();
     let credential = null;
     let user = null;
