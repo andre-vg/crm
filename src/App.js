@@ -4,6 +4,7 @@ import Jogadores from "./pages/Jogadores";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Nav from "./componentes/Navbar";
 import Camp from "./pages/Camp";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/jogadores" element={<Jogadores />} />
             <Route path="/campeonatos" element={<Camp />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </BrowserRouter>
       </div>
